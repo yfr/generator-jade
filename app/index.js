@@ -49,6 +49,7 @@ JadeGenerator.prototype.createFolders = function app() {
 JadeGenerator.prototype.createFiles = function() {
   this.copy('_package.json', 'package.json');
   this.copy('_bower.json', 'bower.json');
+  this.copy('bowerrc', '.bowerrc');
   this.template('_Gruntfile.js', 'Gruntfile.js');
   this.copy('_main.sass', 'app/styles/main.sass');
   this.copy('_main.js', 'app/scripts/main.js');

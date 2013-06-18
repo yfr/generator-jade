@@ -47,6 +47,7 @@ describe('jade generator', function () {
   it('creates expected project files', function (done) {
     var expected = [
       'bower.json',
+      '.bowerrc',
       'package.json',
       'Gruntfile.js',
       'app/styles/main.sass',
