@@ -25,14 +25,6 @@ module.exports = function (grunt) {
     grunt.initConfig({
         folders: folders,
         watch: {
-            coffee: {
-                files: ['<%%= folders.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },
             compass: {
                 files: ['<%%= folders.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
