@@ -1,5 +1,6 @@
 # Generator-jade
-[![Build Status](https://secure.travis-ci.org/yfr/generator-jade.png?branch=master)](https://travis-ci.org/yfr/generator-jade)
+
+**Still very basic!**
 
 A generator for Yeoman.
 
