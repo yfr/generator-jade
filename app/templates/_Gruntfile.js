@@ -113,7 +113,7 @@ module.exports = function (grunt) {
                 imagesDir: '<%%= folders.app %>/images',
                 javascriptsDir: '<%%= folders.app %>/scripts',
                 fontsDir: '<%%= folders.app %>/styles/fonts',
-                importPath: 'app/components',
+                importPath: 'app/bower_components',
                 relativeAssets: true
             },
             dist: {},
