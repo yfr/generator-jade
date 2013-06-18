@@ -1,0 +1,17 @@
+!!! 5
+//if lt IE 7
+  html.no-js.ie6(lang='en')
+//if IE 7
+  html.no-js.ie7(lang='en')
+//if IE 8
+  html.no-js.ie8(lang='en')
+// [if gt IE 8] <!
+html.no-js(lang='de')
+  // <![endif]
+  head
+    include partials/_html-header
+
+  body
+    include partials/_nav
+    block content
+    include partials/_footer
