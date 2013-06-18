@@ -9,7 +9,7 @@
   "bugs": "https://github.com/yfr/generator-jade/issues",
   "author": {
     "name": "Robot",
-    "email": "",
+    "email": "frank@yourfriendlyrobot.net",
     "url": "https://github.com/yfr"
   },
   "main": "app/index.js",
