@@ -2,4 +2,7 @@ extends /layouts/_default
 
 block content
   header
-    h1 <%= _.slugify(projectName) %>
+    h1 project: <%= _.slugify(projectName) %>
+    p this is powered by the jade template engine and served via node.js
+    p until now this is what you got. No fancy js and css frameworks.
+    p but you can add them very easily. Just update your bower file and run <pre><code>bower install</code></pre>
