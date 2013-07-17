@@ -29,17 +29,19 @@ module.exports = function (grunt) {
                 files: ['<%%= folders.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
             },
-            livereload: {
+            server: {
+                options: {
+                    livereload: true
+                },
                 files: [
-                    '<%%= folders.app %>/*.html',
-                    '{.tmp,<%%= folders.app %>}/styles/{,*/}*.css',
-                    '{.tmp,<%%= folders.app %>}/scripts/{,*/}*.js',
+                    '<%%= folders.tmp %>/*.html',
+                    '<%%= folders.tmp %>/styles/{,*/}*.css',
+                    '<%%= folders.app %>/scripts/{,*/}*.js',
                     '<%%= folders.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-                ],
-                tasks: ['livereload']
+                ]
             },
             jade: {
-                files: ['app/jade/{,*/}*.jade', 'app/jade/**/{,*/}*.jade'],
+                files: '<%%= folders.app %>/jade/**/*.jade',
                 tasks: ['jade']
             }
         },
@@ -49,13 +51,13 @@ module.exports = function (grunt) {
                 // change this to '0.0.0.0' to access the server from outside
                 hostname: 'localhost'
             },
-            livereload: {
+            server: {
                 options: {
                     middleware: function (connect) {
                         return [
                             lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'app')
+                            mountFolder(connect, folders.tmp),
+                            mountFolder(connect, folders.app)
                         ];
                     }
                 }
@@ -64,7 +66,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            mountFolder(connect, '.tmp'),
+                            mountFolder(connect, folders.tmp),
                             mountFolder(connect, 'test')
                         ];
                     }
@@ -74,7 +76,7 @@ module.exports = function (grunt) {
                 options: {
                     middleware: function (connect) {
                         return [
-                            mountFolder(connect, 'dist')
+                            mountFolder(connect, folders.dist)
                         ];
                     }
                 }
@@ -90,13 +92,13 @@ module.exports = function (grunt) {
                 files: [{
                     dot: true,
                     src: [
-                        '.tmp',
+                        '<%%= folders.tmp %>',
                         '<%%= folders.dist %>/*',
                         '!<%%= folders.dist %>/.git*'
                     ]
                 }]
             },
-            server: '.tmp'
+            server: '<%%= folders.tmp %>'
         },
         mocha: {
             all: {
@@ -109,11 +111,11 @@ module.exports = function (grunt) {
         compass: {
             options: {
                 sassDir: '<%%= folders.app %>/styles',
-                cssDir: '.tmp/styles',
+                cssDir: '<%%= folders.tmp %>/styles',
                 imagesDir: '<%%= folders.app %>/images',
                 javascriptsDir: '<%%= folders.app %>/scripts',
                 fontsDir: '<%%= folders.app %>/styles/fonts',
-                importPath: 'app/bower_components',
+                importPath: '<%%= folders.app %>/bower_components',
                 relativeAssets: true
             },
             dist: {},
@@ -200,7 +202,7 @@ module.exports = function (grunt) {
             dist: {
                 files: {
                     '<%%= folders.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css'
+                        '<%%= folders.tmp %>/styles/{,*/}*.css'
                     ]
                 }
             }
@@ -298,8 +300,7 @@ module.exports = function (grunt) {
             'clean:server',
             'jade',
             'concurrent:server',
-            'livereload-start',
-            'connect:livereload',
+            'connect:server',
             'open',
             'watch'
         ]);
