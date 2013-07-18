@@ -16,7 +16,7 @@
     "grunt-contrib-livereload": "~0.1.2",
     "grunt-contrib-jade": "~0.6.0",
     "grunt-contrib-watch": "~0.4.4",<% if (cssProcessor === 'stylus') { %>
-    "grunt-contrib-stylus": "~0.6.0",<% if (cssProcessor === 'stylus') { %>
+    "grunt-contrib-stylus": "~0.6.0",<% } else if (cssProcessor === 'sass') { %>
     "grunt-contrib-compass": "~0.1.3",<% } %>
     "grunt-rev": "~0.1.0",
     "grunt-usemin": "~0.1.10",

@@ -51,13 +51,13 @@ JadeGenerator.prototype.createFolders = function app() {
   this.mkdir('app/styles');
 };
 
-JadeGenerator.prototype.createFiles = function() {
-  this.copy('_package.json', 'package.json');
+JadeGenerator.prototype.createFiles = function () {
+  this.copy('_main.sass', 'app/styles/main.sass');
+  this.copy('_main.js', 'app/scripts/main.js');
   this.copy('_bower.json', 'bower.json');
   this.copy('bowerrc', '.bowerrc');
   this.template('_Gruntfile.js', 'Gruntfile.js');
-  this.copy('_main.sass', 'app/styles/main.sass');
-  this.copy('_main.js', 'app/scripts/main.js');
+  this.template('_package.json', 'package.json');
 };
 
 JadeGenerator.prototype.createJadeTemplates = function () {
