@@ -24,11 +24,15 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         folders: folders,
-        watch: {
+        watch: {<% if (cssProcessor === 'stylus') { %>            
+            stylus: {
+                files: '<%%= folders.app %>/styles/**/*.styl',
+                tasks: ['stylus']
+            },<% } else if (cssProcessor === 'sass') { %>
             compass: {
                 files: ['<%%= folders.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server']
-            },
+            },<% } %>
             server: {
                 options: {
                     livereload: true
@@ -107,7 +111,17 @@ module.exports = function (grunt) {
                     urls: ['http://localhost:<%%= connect.options.port %>/index.html']
                 }
             }
-        },
+        },<% if (cssProcessor === 'stylus') { %>
+        stylus: {
+            compile: {
+                files: {
+                    '<%%= folders.tmp %>/main.css': [
+                        '<%%= folders.app %>/styles/**/*.styl',
+                        '!<%%= folders.app %>/styles/**/_*.styl'
+                    ]
+                }
+            }
+        },<% } else if (cssProcessor === 'sass') { %>
         compass: {
             options: {
                 sassDir: '<%%= folders.app %>/styles',
@@ -117,7 +131,7 @@ module.exports = function (grunt) {
                 fontsDir: '<%%= folders.app %>/styles/fonts',
                 importPath: '<%%= folders.app %>/bower_components',
                 relativeAssets: true
-            },
+            },<% } %>
             dist: {},
             server: {
                 options: {
@@ -276,14 +290,17 @@ module.exports = function (grunt) {
             }
         },
         concurrent: {
-            server: [
-                'compass:server'
+            server: [<% if (cssProcessor === 'stylus') { %>
+                'stylus'<% } else if (cssProcessor === 'sass') { %>
+                'compass:server'<% } %>
             ],
-            test: [
-                'compass'
+            test: [<% if (cssProcessor === 'stylus') { %>
+                'stylus'<% } else if (cssProcessor === 'sass') { %>
+                'compass'<% } %>
             ],
-            dist: [
-                'compass:dist',
+            dist: [<% if (cssProcessor === 'stylus') { %>
+                'stylus',<% } else if (cssProcessor === 'sass') { %>
+                'compass:dist',<% } %>
                 'imagemin',
                 'svgmin',
                 'htmlmin'

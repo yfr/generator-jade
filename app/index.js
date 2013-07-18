@@ -23,14 +23,20 @@ JadeGenerator.prototype.askFor = function askFor() {
   console.log(this.yeoman);
 
   var prompts = [
-  {
-    name: 'projectName',
-    message: 'Name your project'
-  }];
+    {
+      name: 'projectName',
+      message: 'Name your project'
+    },{
+      type: 'list',
+      name: 'cssProcessor',
+      message: 'Do you like sass/compass or stylus as a css preprocessor',
+      choices: ['stylus', 'sass']
+    }
+  ];
 
   this.prompt(prompts, function (props) {
     this.projectName = props.projectName;
-    this.jQuery = props.jQuery;
+    this.cssProcessor = props.cssProcessor;
 
     cb();
   }.bind(this));
