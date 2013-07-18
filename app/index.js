@@ -3,8 +3,7 @@ var util = require('util');
 var path = require('path');
 var yeoman = require('yeoman-generator');
 
-
-var JadeGenerator = module.exports = function JadeGenerator(args, options, config) {
+var JadeGenerator = module.exports = function JadeGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
   this.on('end', function () {
@@ -26,7 +25,7 @@ JadeGenerator.prototype.askFor = function askFor() {
     {
       name: 'projectName',
       message: 'Name your project'
-    },{
+    }, {
       type: 'list',
       name: 'cssProcessor',
       message: 'Do you like sass/compass or stylus as a css preprocessor',
@@ -61,7 +60,7 @@ JadeGenerator.prototype.createFiles = function() {
   this.copy('_main.js', 'app/scripts/main.js');
 };
 
-JadeGenerator.prototype.createJadeTemplates = function() {
+JadeGenerator.prototype.createJadeTemplates = function () {
   this.copy('jade/_default.jade', 'app/jade/layouts/_default.jade');
   this.copy('jade/_footer.jade', 'app/jade/layouts/partials/_footer.jade');
   this.copy('jade/_html-header.jade', 'app/jade/layouts/partials/_html-header.jade');
