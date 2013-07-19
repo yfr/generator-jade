@@ -3,7 +3,7 @@
   "version": "0.2.0",
   "description": "A yo generator for jade projects",
   "keywords": [
-    "yeoman-generator"
+    "yeoman-generator", "jade", "stylus"
   ],
   "homepage": "https://github.com/yfr/generator-jade",
   "bugs": "https://github.com/yfr/generator-jade/issues",
