@@ -52,7 +52,11 @@ JadeGenerator.prototype.createFolders = function app() {
 };
 
 JadeGenerator.prototype.createFiles = function () {
-  this.copy('_main.sass', 'app/styles/main.sass');
+  if (this.cssProcessor === 'sass') {
+    this.copy('_main.sass', 'app/styles/main.sass');
+  } else if (this.cssProcessor === 'stylus') {
+    this.copy('_main.styl', 'app/styles/main.styl');
+  }
   this.copy('_main.js', 'app/scripts/main.js');
   this.copy('_bower.json', 'bower.json');
   this.copy('bowerrc', '.bowerrc');
