@@ -2,7 +2,7 @@
 
 A generator for Yeoman to use jade for templating.
 
-alsoyou can choose to use stylus as css preprocessor. So no ruby dependencies for this generator.
+Also: you can choose to use stylus as css preprocessor. So no ruby dependencies for this generator.
 
 ## Getting started
 - Make sure you have [yo](https://github.com/yeoman/yo) installed:
