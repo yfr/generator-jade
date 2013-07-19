@@ -1,22 +1,23 @@
 # Generator-jade
 
-**Still very basic!**
+A generator for Yeoman to use jade for templating.
 
-A generator for Yeoman.
+alsoyou can choose to use stylus as css preprocessor. So no ruby dependencies for this generator.
 
 ## Getting started
 - Make sure you have [yo](https://github.com/yeoman/yo) installed:
     `npm install -g yo`
-- Install the generator: `npm install -g generator-jade`
+- Install the generator: `npm install -g generator-jade` or use the `yo` command and follow instructions.
 - Run: `yo jade`
 
 ## Usage
 
-This generator is powered by the jade template engine
-Until now this is what you got. There is no fancy js and css frameworks
-But you can add them very easily. Just update your bower file and run <code>bower install</code>
+This generator is powered by the jade template engine. There is no fancy js and css frameworks included.
+But you can add them very easily. Just update your bower file and run <code>bower install</code>.
 
-All jade files are supposed to be located under app/jade/. All .jade files with an _underscore are treated as partials and not rendered directly. Everything else is a jade file that is supposed to be a page.
+As css preprocessor you can choose between sass/comapss and stylus.
+
+All jade files are supposed to be located under app/jade/. All .jade files with an _underscore are treated as partials and not rendered directly. Everything else is a jade file that is supposed to be a page. Create subpages in folders with own index.jade files including _default_layout.jade or you own _layout.jade in /layouts.
 
 And this is how i thought about the directory structure of the jade directory
 
