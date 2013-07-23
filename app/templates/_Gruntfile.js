@@ -24,7 +24,7 @@ module.exports = function (grunt) {
 
     grunt.initConfig({
         folders: folders,
-        watch: {<% if (cssProcessor === 'stylus') { %>            
+        watch: {<% if (cssProcessor === 'stylus') { %>
             stylus: {
                 files: '<%%= folders.app %>/styles/**/*.styl',
                 tasks: ['stylus']
@@ -115,7 +115,7 @@ module.exports = function (grunt) {
         stylus: {
             compile: {
                 files: {
-                    '<%%= folders.tmp %>/main.css': [
+                    '<%%= folders.tmp %>/styles/main.css': [
                         '<%%= folders.app %>/styles/**/*.styl',
                         '!<%%= folders.app %>/styles/**/_*.styl'
                     ]
