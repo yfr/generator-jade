@@ -119,6 +119,9 @@ module.exports = function (grunt) {
             '<%%= folders.app %>/styles/**/*.styl',
             '!<%%= folders.app %>/styles/**/_*.styl'
           ]
+        },
+        options: {
+          compress: false
         }
       },<% } else if (cssProcessor === 'sass') { %>
     compass: {
