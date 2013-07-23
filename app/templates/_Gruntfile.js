@@ -120,8 +120,7 @@ module.exports = function (grunt) {
                         '!<%%= folders.app %>/styles/**/_*.styl'
                     ]
                 }
-            }
-        },<% } else if (cssProcessor === 'sass') { %>
+            },<% } else if (cssProcessor === 'sass') { %>
         compass: {
             options: {
                 sassDir: '<%%= folders.app %>/styles',
@@ -131,13 +130,13 @@ module.exports = function (grunt) {
                 fontsDir: '<%%= folders.app %>/styles/fonts',
                 importPath: '<%%= folders.app %>/bower_components',
                 relativeAssets: true
-            },<% } %>
+            },
             dist: {},
             server: {
                 options: {
                     debugInfo: true
                 }
-            }
+            }<% } %>
         },
         jade: {
             html: {
