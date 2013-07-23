@@ -16,10 +16,10 @@ var JadeGenerator = module.exports = function JadeGenerator(args, options) {
 util.inherits(JadeGenerator, yeoman.generators.Base);
 
 JadeGenerator.prototype.askFor = function askFor() {
-  var cb = this.async();
+  var cb = this.async(),
+    welcomeMsg = 'You are running generator-jade version: ' + this.pkg.version;
 
-  // have Yeoman greet the user.
-  console.log(this.yeoman);
+  console.log(welcomeMsg);
 
   var prompts = [
     {
@@ -75,4 +75,5 @@ JadeGenerator.prototype.createJadeTemplates = function () {
 JadeGenerator.prototype.projectfiles = function projectfiles() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+  this.copy('gitignore', '.gitignore');
 };
