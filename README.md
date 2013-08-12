@@ -1,4 +1,5 @@
 # Generator-jade
+[![NPM version](https://badge.fury.io/js/generator-jade.png)](http://badge.fury.io/js/generator-jade)
 
 A generator for Yeoman to use jade for templating.
 
