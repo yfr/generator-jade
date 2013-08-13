@@ -270,7 +270,7 @@ module.exports = function (grunt) {
           cwd: '<%%= folders.app %>',
           dest: '<%%= folders.tmp %>',
           src: [
-            'scripts/{,*/}*js'
+            'scripts/{,*/}*js', 'bower_components/**/*js'
           ]
         }]
       },
