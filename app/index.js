@@ -66,9 +66,9 @@ JadeGenerator.prototype.createFiles = function () {
 
 JadeGenerator.prototype.createJadeTemplates = function () {
   this.copy('jade/_default.jade', 'app/jade/layouts/_default.jade');
-  this.copy('jade/_footer.jade', 'app/jade/layouts/partials/_footer.jade');
-  this.copy('jade/_html-header.jade', 'app/jade/layouts/partials/_html-header.jade');
-  this.copy('jade/_header.jade', 'app/jade/layouts/partials/_header.jade');
+  this.copy('jade/_footer.jade', 'app/jade/layouts/default-partials/_footer.jade');
+  this.copy('jade/_html-header.jade', 'app/jade/layouts/default-partials/_html-header.jade');
+  this.copy('jade/_header.jade', 'app/jade/layouts/default-partials/_header.jade');
   this.copy('jade/_index.jade', 'app/jade/index.jade');
 };
 
