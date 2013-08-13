@@ -162,6 +162,10 @@ module.exports = function (grunt) {
 
             var page = src[0].replace(/app\/jade\/(.*)\/index.jade/, '$1');
 
+            if (page == src[0]) {
+              page = 'index';
+            }
+
             return {
               page: page
             };
