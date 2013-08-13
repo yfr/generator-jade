@@ -13,7 +13,7 @@ Also: you can choose to use stylus as css preprocessor. So no ruby dependencies 
 
 ## Usage
 
-This generator is powered by the jade template engine. There is no fancy js and css frameworks included.
+This generator is powered by the jade template engine. There is just jQuery included. No other fancy js and css frameworks.
 But you can add them very easily. Just update your bower file and run <code>bower install</code>.
 
 As css preprocessor you can choose between sass/comapss and stylus.
