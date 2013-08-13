@@ -121,7 +121,10 @@ module.exports = function (grunt) {
           ]
         },
         options: {
-          compress: false
+          compress: false,
+          // convert the css url() declaration into nib inline imaging function
+          // this converts images smaller than 30kb to data url
+          urlfunc: 'url'
         }
       },<% } else if (cssProcessor === 'sass') { %>
     compass: {
