@@ -144,21 +144,17 @@ module.exports = function (grunt) {
         options: {
           debugInfo: true
         }
-      }<% } %>
-    },
+      }
+    },<% } %>
     jade: {
       html: {
-        files: grunt.file.expandMapping(['{,*/}*.jade', '!**/_*'], 'dest', {
-          cwd: 'app/jade',
-          rename: function (dest, src) {
-
-            if (/i18n/.test(src)) {
-              return '<%%= folders.tmp %>/' + src.replace(/index.i18n-(.*).jade/, '$1.html');
-            }
-
-            return '<%%= folders.tmp %>/' + src.replace(/\.jade$/, '.html');
-          }
-        }),
+        files: [{
+          expand: true,
+          cwd: '<%%= folders.app %>/jade',
+          src: ['{,*/}*.jade', '!**/_*'],
+          dest: '.tmp/',
+          ext: '.html'
+        }],
         options: {
           client: false,
           pretty: true,
@@ -173,7 +169,7 @@ module.exports = function (grunt) {
 
             return {
               page: page
-            };
+            }
           }
         }
       }
@@ -253,7 +249,6 @@ module.exports = function (grunt) {
         }]
       }
     },
-    // Put files not handled in other tasks here
     copy: {
       dist: {
         files: [{
