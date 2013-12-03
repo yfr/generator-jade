@@ -325,6 +325,12 @@ module.exports = function (grunt) {
         'svgmin',
         'htmlmin'
       ]
+    },
+    jshint: {
+      options: {
+        reporter: require('jshint-stylish')
+      },
+      build: ['<%%= folders.app %>/scripts/**/*js']
     }
   });
 
