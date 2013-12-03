@@ -1,7 +1,7 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-var mountFolder = function (connect, dir) {
+var mountFolder = function(connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
 
@@ -11,7 +11,7 @@ var mountFolder = function (connect, dir) {
 // use this if you want to match all subfolders:
 // 'test/spec/**/*.js'
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   // load all grunt tasks
   require('load-grunt-tasks')(grunt);
 
@@ -71,7 +71,7 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               lrSnippet,
               mountFolder(connect, folders.tmp),
@@ -82,7 +82,7 @@ module.exports = function (grunt) {
       },
       test: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               mountFolder(connect, folders.tmp),
               mountFolder(connect, 'test')
@@ -92,7 +92,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          middleware: function (connect) {
+          middleware: function(connect) {
             return [
               mountFolder(connect, folders.dist)
             ];
@@ -173,7 +173,7 @@ module.exports = function (grunt) {
           client: false,
           pretty: true,
           basedir: '<%%= folders.app %>/jade',
-          data: function (dest, src) {
+          data: function(dest, src) {
 
             var page = src[0].replace(/app\/jade\/(.*)\/index.jade/, '$1');
 
@@ -183,7 +183,7 @@ module.exports = function (grunt) {
 
             return {
               page: page
-            }
+            };
           }
         }
       }
@@ -334,7 +334,7 @@ module.exports = function (grunt) {
     }
   });
 
-  grunt.registerTask('server', function (target) {
+  grunt.registerTask('server', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
     }
