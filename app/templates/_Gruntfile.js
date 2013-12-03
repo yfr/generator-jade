@@ -47,6 +47,17 @@ module.exports = function (grunt) {
       jade: {
         files: '<%%= folders.app %>/jade/**/*.jade',
         tasks: ['jade']
+      },
+      livereload: {
+        options: {
+          livereload: true
+        },
+        files: [
+          '<%%= folders.tmp %>/*.html',
+          '<%%= folders.tmp %>/styles/{,*/}*.css',
+          '{.tmp,<%%= folders.app %>}/scripts/{,*/}*.js',
+          '<%%= folders.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
+        ]
       }
     },
     connect: {
