@@ -30,12 +30,17 @@ JadeGenerator.prototype.askFor = function askFor() {
       name: 'cssProcessor',
       message: 'Do you like sass/compass or stylus as a css preprocessor',
       choices: ['stylus', 'sass']
+    }, {
+      type: 'confirm',
+      name: 'jquery',
+      message: 'Do you like to use jQuery'
     }
   ];
 
-  this.prompt(prompts, function (props) {
+  this.prompt(prompts, function(props) {
     this.projectName = props.projectName;
     this.cssProcessor = props.cssProcessor;
+    this.jquery = props.jquery;
 
     cb();
   }.bind(this));
