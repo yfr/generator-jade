@@ -6,22 +6,25 @@ var yeoman = require('yeoman-generator');
 var JadeGenerator = module.exports = function JadeGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function () {
+  this.on('end', function() {
     this.installDependencies({ skipInstall: options['skip-install'] });
   });
 
-  this.pkg = JSON.parse(this.readFileAsString(path.join(__dirname, '../package.json')));
+  this.pkg = JSON.parse(
+    this.readFileAsString(path.join(__dirname, '../package.json'))
+  );
 };
 
 util.inherits(JadeGenerator, yeoman.generators.Base);
 
 JadeGenerator.prototype.askFor = function askFor() {
   var cb = this.async(),
-    welcomeMsg = 'You are running generator-jade version: ' + this.pkg.version;
+    welcomeMsg = 'You are running generator-jade version: ' + this.pkg.version,
+    prompts;
 
   console.log(welcomeMsg);
 
-  var prompts = [
+  prompts = [
     {
       name: 'projectName',
       message: 'Name your project'
@@ -46,30 +49,17 @@ JadeGenerator.prototype.askFor = function askFor() {
   }.bind(this));
 };
 
-JadeGenerator.prototype.createFolders = function app() {
-  this.mkdir('app');
-  this.mkdir('app/jade');
-  this.mkdir('app/jade/layouts');
-  this.mkdir('app/assets');
-  this.mkdir('app/images');
-  this.mkdir('app/scripts');
-  this.mkdir('app/styles');
+JadeGenerator.prototype.gruntfile = function gruntfile() {
+  this.template('_Gruntfile.js', 'Gruntfile.js');
 };
 
-JadeGenerator.prototype.createFiles = function () {
-  if (this.cssProcessor === 'sass') {
-    this.copy('_main.sass', 'app/styles/main.sass');
-  } else if (this.cssProcessor === 'stylus') {
-    this.copy('_main.styl', 'app/styles/main.styl');
-  }
-  this.copy('_main.js', 'app/scripts/main.js');
-  this.copy('_bower.json', 'bower.json');
+JadeGenerator.prototype.tools = function tools() {
   this.copy('bowerrc', '.bowerrc');
-  this.template('_Gruntfile.js', 'Gruntfile.js');
+  this.template('_bower.json', 'bower.json');
   this.template('_package.json', 'package.json');
 };
 
-JadeGenerator.prototype.createJadeTemplates = function () {
+JadeGenerator.prototype.jade = function jade() {
   this.copy('jade/_default.jade', 'app/jade/layouts/_default.jade');
   this.copy('jade/_footer.jade', 'app/jade/layouts/default-partials/_footer.jade');
   this.copy('jade/_html-header.jade', 'app/jade/layouts/default-partials/_html-header.jade');
@@ -77,8 +67,21 @@ JadeGenerator.prototype.createJadeTemplates = function () {
   this.copy('jade/_index.jade', 'app/jade/index.jade');
 };
 
-JadeGenerator.prototype.projectfiles = function projectfiles() {
+JadeGenerator.prototype.projectFiles = function projectFiles() {
+  if (this.cssProcessor === 'sass') {
+    this.copy('_main.sass', 'app/styles/main.sass');
+  } else if (this.cssProcessor === 'stylus') {
+    this.copy('_main.styl', 'app/styles/main.styl');
+  }
+
+  this.copy('_main.js', 'app/scripts/main.js');
+};
+
+JadeGenerator.prototype.editor = function editor() {
   this.copy('editorconfig', '.editorconfig');
   this.copy('jshintrc', '.jshintrc');
+};
+
+JadeGenerator.prototype.git = function git() {
   this.copy('gitignore', '.gitignore');
 };
