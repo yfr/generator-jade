@@ -13,6 +13,9 @@ var JadeGenerator = module.exports = function JadeGenerator(args, options) {
   this.pkg = JSON.parse(
     this.readFileAsString(path.join(__dirname, '../package.json'))
   );
+
+  this.hookFor('mocha', { as: 'app' });
+
 };
 
 util.inherits(JadeGenerator, yeoman.generators.Base);
