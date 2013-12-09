@@ -44,7 +44,7 @@ JadeGenerator.prototype.askFor = function askFor() {
   ];
 
   this.prompt(prompts, function(props) {
-    this.projectName = props.projectName;
+    this.projectName = props.projectName || this.appname;
     this.cssProcessor = props.cssProcessor;
     this.jquery = props.jquery;
 

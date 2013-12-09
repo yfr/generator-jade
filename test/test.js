@@ -22,7 +22,7 @@ describe('Webapp generator test', function() {
     }.bind(this));
   });
 
-  it('the generator can be required without throwing', function () {
+  it('the generator can be required without throwing', function() {
     // not testing the actual run of generators yet
     this.app = require('../app');
   });
