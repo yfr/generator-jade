@@ -1,9 +1,5 @@
 // Generated on <%= (new Date).toISOString().split('T')[0] %> using <%= pkg.name %> <%= pkg.version %>
 'use strict';
-var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
-var mountFolder = function(connect, dir) {
-  return connect.static(require('path').resolve(dir));
-};
 
 // # Globbing
 // for performance reasons we're only matching one level down:
@@ -43,60 +39,47 @@ module.exports = function(grunt) {
         files: [
           '<%%= folders.tmp %>/*.html',
           '<%%= folders.tmp %>/styles/{,*/}*.css',
-          '<%%= folders.app %>/scripts/{,*/}*.js',
+          '{.tmp,<%%= folders.app %>}/scripts/{,*/}*.js',
           '<%%= folders.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
         ]
       },
       jade: {
         files: '<%%= folders.app %>/jade/**/*.jade',
         tasks: ['jade']
-      },
-      livereload: {
-        options: {
-          livereload: true
-        },
-        files: [
-          '<%%= folders.tmp %>/*.html',
-          '<%%= folders.tmp %>/styles/{,*/}*.css',
-          '{.tmp,<%%= folders.app %>}/scripts/{,*/}*.js',
-          '<%%= folders.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
-        ]
       }
     },
     connect: {
       options: {
         port: 9000,
         // change this to '0.0.0.0' to access the server from outside
-        hostname: 'localhost'
+        hostname: 'localhost',
+        livereload: true
       },
       server: {
         options: {
-          middleware: function(connect) {
-            return [
-              lrSnippet,
-              mountFolder(connect, folders.tmp),
-              mountFolder(connect, folders.app)
-            ];
-          }
+          open: true,
+          base: [
+            '<%%= folders.tmp %>',
+            '<%%= folders.app %>'
+          ]
         }
       },
       test: {
         options: {
-          middleware: function(connect) {
-            return [
-              mountFolder(connect, folders.tmp),
-              mountFolder(connect, 'test')
-            ];
-          }
+          base: [
+            '<%%= folders.tmp %>',
+            'test',
+            '<%%= folders.app %>'
+          ]
         }
       },
       dist: {
         options: {
-          middleware: function(connect) {
-            return [
-              mountFolder(connect, folders.dist)
-            ];
-          }
+          open: true,
+          base: [
+            '<%%= folders.dist %>'
+          ],
+          livereload: false
         }
       }
     },
