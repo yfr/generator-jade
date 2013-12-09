@@ -1,6 +1,8 @@
 # Generator-jade
 [![NPM version](https://badge.fury.io/js/generator-jade.png)](http://badge.fury.io/js/generator-jade)
 
+[![Build Status](https://travis-ci.org/yfr/generator-jade.png?branch=master)](https://travis-ci.org/yfr/generator-jade)
+
 A generator for Yeoman to use jade for templating.
 
 Also: you can choose to use stylus as css preprocessor. So no ruby dependencies for this generator.
