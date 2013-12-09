@@ -59,6 +59,15 @@ JadeGenerator.prototype.tools = function tools() {
   this.template('_package.json', 'package.json');
 };
 
+JadeGenerator.prototype.editor = function editor() {
+  this.copy('editorconfig', '.editorconfig');
+  this.copy('jshintrc', '.jshintrc');
+};
+
+JadeGenerator.prototype.git = function git() {
+  this.copy('gitignore', '.gitignore');
+};
+
 JadeGenerator.prototype.jade = function jade() {
   this.copy('jade/_default.jade', 'app/jade/layouts/_default.jade');
   this.copy('jade/_footer.jade', 'app/jade/layouts/default-partials/_footer.jade');
@@ -75,13 +84,4 @@ JadeGenerator.prototype.projectFiles = function projectFiles() {
   }
 
   this.copy('_main.js', 'app/scripts/main.js');
-};
-
-JadeGenerator.prototype.editor = function editor() {
-  this.copy('editorconfig', '.editorconfig');
-  this.copy('jshintrc', '.jshintrc');
-};
-
-JadeGenerator.prototype.git = function git() {
-  this.copy('gitignore', '.gitignore');
 };

@@ -1,13 +1,13 @@
-/*global describe, beforeEach, it*/
+/* global describe, beforeEach, it */
 
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
 var assert  = require('assert');
 
 
-describe('Webapp generator test', function () {
-  beforeEach(function (done) {
-    helpers.testDirectory(path.join(__dirname, 'temp'), function (err) {
+describe('Webapp generator test', function() {
+  beforeEach(function(done) {
+    helpers.testDirectory(path.join(__dirname, 'temp'), function(err) {
       if (err) {
         return done(err);
       }
@@ -27,20 +27,59 @@ describe('Webapp generator test', function () {
     this.app = require('../app');
   });
 
-  it('creates expected files', function (done) {
+  it('creates expected files in stylus mode', function(done) {
     var expected = [
       'bower.json',
-      'package.json'
+      'package.json',
+      'Gruntfile.js',
+      '.editorconfig',
+      '.gitignore',
+      '.jshintrc',
+      'app/jade/layouts/_default.jade',
+      'app/jade/layouts/default-partials/_footer.jade',
+      'app/jade/layouts/default-partials/_html-header.jade',
+      'app/jade/layouts/default-partials/_header.jade',
+      'app/jade/index.jade',
+      'app/styles/main.styl',
+      'app/scripts/main.js'
     ];
 
     helpers.mockPrompt(this.webapp, {
-      'compassBootstrap': 'Y',
-      'includeRequireJS': 'N',
-      'autoprefixer': 'N'
+      cssProcessor: 'stylus'
     });
 
     this.webapp.options['skip-install'] = true;
-    this.webapp.run({}, function () {
+
+    this.webapp.run({}, function() {
+      helpers.assertFiles(expected);
+      done();
+    });
+  });
+
+  it('creates expected files in sass mode', function(done) {
+    var expected = [
+      'bower.json',
+      'package.json',
+      'Gruntfile.js',
+      '.editorconfig',
+      '.gitignore',
+      '.jshintrc',
+      'app/jade/layouts/_default.jade',
+      'app/jade/layouts/default-partials/_footer.jade',
+      'app/jade/layouts/default-partials/_html-header.jade',
+      'app/jade/layouts/default-partials/_header.jade',
+      'app/jade/index.jade',
+      'app/styles/main.sass',
+      'app/scripts/main.js'
+    ];
+
+    helpers.mockPrompt(this.webapp, {
+      cssProcessor: 'sass'
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
       helpers.assertFiles(expected);
       done();
     });
