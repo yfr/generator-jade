@@ -34,8 +34,8 @@ JadeGenerator.prototype.askFor = function askFor() {
     }, {
       type: 'list',
       name: 'cssProcessor',
-      message: 'Do you like sass/compass or stylus as a css preprocessor',
-      choices: ['stylus', 'sass']
+      message: 'Do you like sass/compass or stylus as a css preprocessor or just css',
+      choices: ['stylus', 'sass', 'css']
     }, {
       type: 'confirm',
       name: 'jquery',
@@ -84,6 +84,8 @@ JadeGenerator.prototype.projectFiles = function projectFiles() {
     this.copy('_main.sass', 'app/styles/main.sass');
   } else if (this.cssProcessor === 'stylus') {
     this.copy('_main.styl', 'app/styles/main.styl');
+  } else if (this.cssProcessor === 'css') {
+    this.copy('_main.css', 'app/styles/main.css');
   }
 
   this.copy('_main.js', 'app/scripts/main.js');

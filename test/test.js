@@ -84,4 +84,33 @@ describe('Webapp generator test', function() {
       done();
     });
   });
+
+  it('creates expected files in css mode', function(done) {
+    var expected = [
+      'bower.json',
+      'package.json',
+      'Gruntfile.js',
+      '.editorconfig',
+      '.gitignore',
+      '.jshintrc',
+      'app/jade/layouts/_default.jade',
+      'app/jade/layouts/default-partials/_footer.jade',
+      'app/jade/layouts/default-partials/_html-header.jade',
+      'app/jade/layouts/default-partials/_header.jade',
+      'app/jade/index.jade',
+      'app/styles/main.css',
+      'app/scripts/main.js'
+    ];
+
+    helpers.mockPrompt(this.webapp, {
+      cssProcessor: 'css'
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
+      helpers.assertFiles(expected);
+      done();
+    });
+  });
 });
