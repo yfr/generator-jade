@@ -68,7 +68,7 @@ JadeGenerator.prototype.editor = function editor() {
 };
 
 JadeGenerator.prototype.git = function git() {
-  this.copy('gitignore', '.gitignore');
+  this.template('_gitignore', '.gitignore');
 };
 
 JadeGenerator.prototype.jade = function jade() {
