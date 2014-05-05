@@ -39,7 +39,8 @@ JadeGenerator.prototype.askFor = function askFor() {
     }, {
       type: 'confirm',
       name: 'jquery',
-      message: 'Do you like to use jQuery'
+      message: 'Do you like to use jQuery',
+      default: true
     }
   ];
 

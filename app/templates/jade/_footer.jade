@@ -2,8 +2,9 @@
 footer
 
 // build:js /scripts/main.js
-
+<% if (jquery === true) { %>
 script(src='/bower_components/jquery/jquery.js')
+<% } %>
 script(src='/scripts/main.js')
 
 // endbuild
