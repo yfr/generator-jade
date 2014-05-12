@@ -36,9 +36,6 @@ describe('Webapp generator test', function() {
       '.gitignore',
       '.jshintrc',
       'app/jade/layouts/_default.jade',
-      'app/jade/layouts/default-partials/_footer.jade',
-      'app/jade/layouts/default-partials/_html-header.jade',
-      'app/jade/layouts/default-partials/_header.jade',
       'app/jade/index.jade',
       'app/styles/main.styl',
       'app/scripts/main.js'
@@ -65,9 +62,6 @@ describe('Webapp generator test', function() {
       '.gitignore',
       '.jshintrc',
       'app/jade/layouts/_default.jade',
-      'app/jade/layouts/default-partials/_footer.jade',
-      'app/jade/layouts/default-partials/_html-header.jade',
-      'app/jade/layouts/default-partials/_header.jade',
       'app/jade/index.jade',
       'app/styles/main.sass',
       'app/scripts/main.js'
@@ -94,9 +88,6 @@ describe('Webapp generator test', function() {
       '.gitignore',
       '.jshintrc',
       'app/jade/layouts/_default.jade',
-      'app/jade/layouts/default-partials/_footer.jade',
-      'app/jade/layouts/default-partials/_html-header.jade',
-      'app/jade/layouts/default-partials/_header.jade',
       'app/jade/index.jade',
       'app/styles/main.css',
       'app/scripts/main.js'
