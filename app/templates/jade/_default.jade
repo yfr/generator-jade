@@ -1,12 +1,28 @@
 doctype html
-//if IE 8
-    <html class="lt-ie9">
-// [if gt IE 8] <!
 html(lang="en")
-  // <![endif]
-  include default-partials/_html-header
+  head
+    title <%= _.slugify(projectName) %>
+    meta(charset='UTF-8')
+    meta(content='', name='description')
+    meta(content='', name='author')
+    meta(content='3 days', name='revisit-after')
+
+    // build:css /styles/main.css
+    link(href='/styles/main.css', rel='stylesheet')
+    // endbuild
 
   body(class=page)
-    include default-partials/_header
+    header
+      h1 Ahoi, <%= _.slugify(projectName) %>!
+
     block content
-    include default-partials/_footer
+
+    // Footer
+    footer
+
+    // build:js /scripts/main.js
+    <% if (jquery === true) { %>
+    script(src='/bower_components/jquery/jquery.js')
+    <% } %>
+    script(src='/scripts/main.js')
+    // endbuild
