@@ -28,10 +28,6 @@ And this is how i thought about the directory structure of the jade directory
     |-- index.jade
     |-- layouts
     |   |-- _default_layout.jade
-    |   +-- partials
-    |       |-- _html-header.jade
-    |       |-- _footer.jade
-    |       +-- _nav.jade
     |-- page1
     |  |-- index.jade
     |       |-- partials
