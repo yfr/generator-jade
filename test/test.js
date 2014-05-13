@@ -48,7 +48,7 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertFiles(expected);
+      helpers.assertFile(expected);
       done();
     });
   });
@@ -74,7 +74,7 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertFiles(expected);
+      helpers.assertFile(expected);
       done();
     });
   });
@@ -100,7 +100,7 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertFiles(expected);
+      helpers.assertFile(expected);
       done();
     });
   });
