@@ -6,15 +6,26 @@ var yeoman = require('yeoman-generator');
 var JadeGenerator = module.exports = function JadeGenerator(args, options) {
   yeoman.generators.Base.apply(this, arguments);
 
-  this.on('end', function() {
-    this.installDependencies({ skipInstall: options['skip-install'] });
-  });
+  // setup the test-framework property, Gruntfile template will need this
+  this.testFramework = options['test-framework'] || 'mocha';
+
+  // for hooks to resolve on mocha by default
+  options['test-framework'] = this.testFramework;
+
+  // resolved to mocha by default (could be switched to jasmine for instance)
+  this.hookFor('test-framework', {
+    as: 'app',
+    options: {
+      options: {
+        'skip-message': options['skip-install-message'],
+        'skip-install': options['skip-install']
+      }
+    }
+  })
 
   this.pkg = JSON.parse(
     this.readFileAsString(path.join(__dirname, '../package.json'))
   );
-
-  this.hookFor('mocha', { as: 'app' });
 
 };
 
@@ -87,4 +98,17 @@ JadeGenerator.prototype.projectFiles = function projectFiles() {
   }
 
   this.copy('_main.js', 'app/scripts/main.js');
+};
+
+JadeGenerator.prototype.install = function () {
+  if (this.options['skip-install']) {
+    return;
+  }
+
+  var done = this.async();
+  this.installDependencies({
+    skipMessage: this.options['skip-install-message'],
+    skipInstall: this.options['skip-install'],
+    callback: done
+  });
 };
