@@ -304,6 +304,11 @@ module.exports = function(grunt) {
         'htmlmin'
       ]
     },
+    release: {
+      options: {<% if (isPrivate) { %>
+        npm: false<% } %>
+      }
+    },
     jshint: {
       options: {
         reporter: require('jshint-stylish')
