@@ -21,7 +21,7 @@ var JadeGenerator = module.exports = function JadeGenerator(args, options) {
         'skip-install': options['skip-install']
       }
     }
-  })
+  });
 
   this.pkg = JSON.parse(
     this.readFileAsString(path.join(__dirname, '../package.json'))
@@ -45,7 +45,7 @@ JadeGenerator.prototype.askFor = function askFor() {
     }, {
       type: 'list',
       name: 'cssProcessor',
-      message: 'Do you like sass/compass or stylus as a css preprocessor or just css',
+      message: 'Do you like sass/compass, stylus or just css',
       choices: ['stylus', 'sass', 'css']
     }, {
       type: 'confirm',
@@ -106,7 +106,7 @@ JadeGenerator.prototype.projectFiles = function projectFiles() {
   this.copy('_main.js', 'app/scripts/main.js');
 };
 
-JadeGenerator.prototype.install = function () {
+JadeGenerator.prototype.install = function() {
   if (this.options['skip-install']) {
     return;
   }
