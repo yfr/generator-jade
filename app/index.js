@@ -49,6 +49,11 @@ JadeGenerator.prototype.askFor = function askFor() {
       choices: ['stylus', 'sass', 'css']
     }, {
       type: 'confirm',
+      name: 'isPrivate',
+      message: 'Is this a private project?',
+      default: true
+    }, {
+      type: 'confirm',
       name: 'jquery',
       message: 'Do you like to use jQuery',
       default: true
@@ -58,6 +63,7 @@ JadeGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function(props) {
     this.projectName = props.projectName || this.appname;
     this.cssProcessor = props.cssProcessor;
+    this.isPrivate = props.isPrivate;
     this.jquery = props.jquery;
 
     cb();
