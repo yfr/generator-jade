@@ -1,6 +1,6 @@
 node_modules
 dist
-.tmp <% if (cssProcessor === 'sass') { %>
-.sass-cache <% } %>
+.tmp<% if (cssProcessor === 'sass') { %>
+.sass-cache<% } %>
 .DS_Store
 app/bower_components
