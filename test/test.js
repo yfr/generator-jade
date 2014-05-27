@@ -104,4 +104,52 @@ describe('Webapp generator test', function() {
       done();
     });
   });
+
+  it('creates expected ".gitignore" content in stylus mode', function(done) {
+    var expected = /.*\s\n/g,
+      file = '.gitignore';
+
+    helpers.mockPrompt(this.webapp, {
+      cssProcessor: 'stylus'
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
+      helpers.assertNoFileContent(file,expected);
+      done();
+    });
+  });
+
+  it('creates expected ".gitignore" content in sass mode', function(done) {
+    var expected = /.*\s\n/g,
+      file = '.gitignore';
+
+    helpers.mockPrompt(this.webapp, {
+      cssProcessor: 'sass'
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
+      helpers.assertNoFileContent(file,expected);
+      done();
+    });
+  });
+
+  it('creates expected ".gitignore" content in css mode', function(done) {
+    var expected = /.*\s\n/g,
+      file = '.gitignore';
+
+    helpers.mockPrompt(this.webapp, {
+      cssProcessor: 'css'
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
+      helpers.assertNoFileContent(file,expected);
+      done();
+    });
+  });
 });
