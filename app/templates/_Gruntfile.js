@@ -26,12 +26,17 @@ module.exports = function(grunt) {
     watch: {<% if (cssProcessor === 'stylus') { %>
       stylus: {
         files: '<%%= folders.app %>/styles/**/*.styl',
-        tasks: ['stylus']
+        tasks: ['stylus', 'autoprefixer']
       },<% } else if (cssProcessor === 'sass') { %>
       compass: {
         files: ['<%%= folders.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server']
-      },<% } %>
+        tasks: ['compass:server', 'autoprefixer']
+      },<% } else { %>
+      css: {
+        files: '<%%= folders.app %>/styles/{,*/}*.css',
+        tasks: ['copy:css', 'autoprefixer']
+      },
+      <% }%>
       server: {
         options: {
           livereload: true
@@ -138,6 +143,19 @@ module.exports = function(grunt) {
         }
       }
     },<% } %>
+    autoprefixer: {
+      options: {
+        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%%= folders.tmp %>/styles',
+          dest: '<%%= folders.tmp %>/styles',
+          src: '{,*/}*.css'
+        }]
+      }
+    },
     jade: {
       html: {
         files: [{
@@ -326,6 +344,7 @@ module.exports = function(grunt) {
       'clean:server',
       'jade',
       'concurrent:server',
+      'autoprefixer',
       'connect:server',
       'watch'
     ]);
@@ -345,6 +364,7 @@ module.exports = function(grunt) {
     'copy:css',
     'useminPrepare',
     'concurrent:dist',
+    'autoprefixer',
     'concat',
     'cssmin',
     'uglify',
