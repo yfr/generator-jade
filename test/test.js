@@ -254,4 +254,36 @@ describe('Webapp generator test', function() {
       done();
     });
   });
+
+  it('autoprefixer is not added to package.json if not selected', function(done) {
+    var expected = /autoprefixer/g,
+      file = 'package.json';
+
+    helpers.mockPrompt(this.webapp, {
+      autoprefixer: false
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
+      helpers.assertNoFileContent(file,expected);
+      done();
+    });
+  });
+
+  it('autoprefixer is added to package.json if selected', function(done) {
+    var expected = /autoprefixer/g,
+      file = 'package.json';
+
+    helpers.mockPrompt(this.webapp, {
+      autoprefixer: true
+    });
+
+    this.webapp.options['skip-install'] = true;
+
+    this.webapp.run({}, function() {
+      helpers.assertFileContent(file,expected);
+      done();
+    });
+  });
 });
