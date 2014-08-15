@@ -26,12 +26,17 @@ module.exports = function(grunt) {
     watch: {<% if (cssProcessor === 'stylus') { %>
       stylus: {
         files: '<%%= folders.app %>/styles/**/*.styl',
-        tasks: ['stylus']
+        <% if (autoprefixer) { %>tasks: ['stylus', 'autoprefixer']<% } else { %>tasks: ['stylus']<% } %>
       },<% } else if (cssProcessor === 'sass') { %>
       compass: {
         files: ['<%%= folders.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server']
-      },<% } %>
+        <% if (autoprefixer) { %>tasks: ['compass:server', 'autoprefixer']<% } else { %>tasks: ['compass:server']<% } %>
+      },<% } else { %>
+      css: {
+        files: '<%%= folders.app %>/styles/{,*/}*.css',
+        <% if (autoprefixer) { %>tasks: ['copy:css', 'autoprefixer']<% } else { %>tasks: ['copy:css']<% } %>
+      },
+      <% }%>
       server: {
         options: {
           livereload: true
@@ -136,6 +141,19 @@ module.exports = function(grunt) {
         options: {
           debugInfo: true
         }
+      }
+    },<% } %>
+    <% if (autoprefixer) { %>autoprefixer: {
+      options: {
+        browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%%= folders.tmp %>/styles',
+          dest: '<%%= folders.tmp %>/styles',
+          src: '{,*/}*.css'
+        }]
       }
     },<% } %>
     jade: {
@@ -317,7 +335,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('server', function(target) {
+  grunt.registerTask('serve', function(target) {
     if (target === 'dist') {
       return grunt.task.run(['build', 'connect:dist:keepalive']);
     }
@@ -326,6 +344,7 @@ module.exports = function(grunt) {
       'clean:server',
       'jade',
       'concurrent:server',
+      <% if (autoprefixer) { %>'autoprefixer',<% } %>
       'connect:server',
       'watch'
     ]);
@@ -345,6 +364,7 @@ module.exports = function(grunt) {
     'copy:css',
     'useminPrepare',
     'concurrent:dist',
+    <% if (autoprefixer) { %>'autoprefixer',<% } %>
     'concat',
     'cssmin',
     'uglify',

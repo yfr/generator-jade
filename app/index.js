@@ -47,7 +47,14 @@ JadeGenerator.prototype.askFor = function askFor() {
       name: 'cssProcessor',
       message: 'Do you like sass/compass, stylus or just css',
       choices: ['stylus', 'sass', 'css']
-    }, {
+    },
+    {
+      type: 'confirm',
+      name: 'autoprefixer',
+      message: 'Do you want to use the autoprefixer?',
+      default: false
+    },
+    {
       type: 'confirm',
       name: 'isPrivate',
       message: 'Is this a private project?',
@@ -63,6 +70,7 @@ JadeGenerator.prototype.askFor = function askFor() {
   this.prompt(prompts, function(props) {
     this.projectName = props.projectName || this.appname;
     this.cssProcessor = props.cssProcessor;
+    this.autoprefixer = props.autoprefixer;
     this.isPrivate = props.isPrivate;
     this.jquery = props.jquery;
 
