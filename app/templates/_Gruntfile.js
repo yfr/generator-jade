@@ -26,27 +26,15 @@ module.exports = function(grunt) {
     watch: {<% if (cssProcessor === 'stylus') { %>
       stylus: {
         files: '<%%= folders.app %>/styles/**/*.styl',
-        <% if (autoprefixer) { %>
-        tasks: ['stylus', 'autoprefixer']
-        <% } else { %>
-        tasks: ['stylus']
-        <% } %>
+        <% if (autoprefixer) { %>tasks: ['stylus', 'autoprefixer']<% } else { %>tasks: ['stylus']<% } %>
       },<% } else if (cssProcessor === 'sass') { %>
       compass: {
         files: ['<%%= folders.app %>/styles/{,*/}*.{scss,sass}'],
-        <% if (autoprefixer) { %>
-        tasks: ['compass:server', 'autoprefixer']
-        <% } else { %>
-        tasks: ['compass:server']
-        <% } %>
+        <% if (autoprefixer) { %>tasks: ['compass:server', 'autoprefixer']<% } else { %>tasks: ['compass:server']<% } %>
       },<% } else { %>
       css: {
         files: '<%%= folders.app %>/styles/{,*/}*.css',
-        <% if (autoprefixer) { %>
-        tasks: ['copy:css', 'autoprefixer']
-        <% } else { %>
-        tasks: ['copy:css']
-        <% } %>
+        <% if (autoprefixer) { %>tasks: ['copy:css', 'autoprefixer']<% } else { %>tasks: ['copy:css']<% } %>
       },
       <% }%>
       server: {
@@ -155,8 +143,7 @@ module.exports = function(grunt) {
         }
       }
     },<% } %>
-    <% if (autoprefixer) { %>
-    autoprefixer: {
+    <% if (autoprefixer) { %>autoprefixer: {
       options: {
         browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
       },
@@ -168,8 +155,7 @@ module.exports = function(grunt) {
           src: '{,*/}*.css'
         }]
       }
-    },
-    <% } %>
+    },<% } %>
     jade: {
       html: {
         files: [{
@@ -358,9 +344,7 @@ module.exports = function(grunt) {
       'clean:server',
       'jade',
       'concurrent:server',
-      <% if (autoprefixer) { %>
-      'autoprefixer',
-      <% } %>
+      <% if (autoprefixer) { %>'autoprefixer',<% } %>
       'connect:server',
       'watch'
     ]);
@@ -380,9 +364,7 @@ module.exports = function(grunt) {
     'copy:css',
     'useminPrepare',
     'concurrent:dist',
-    <% if (autoprefixer) { %>
-    'autoprefixer',
-    <% } %>
+    <% if (autoprefixer) { %>'autoprefixer',<% } %>
     'concat',
     'cssmin',
     'uglify',
