@@ -18,6 +18,7 @@
     "grunt-contrib-watch": "^0.6.1",<% if (cssProcessor === 'stylus') { %>
     "grunt-contrib-stylus": "^0.16.0",<% } else if (cssProcessor === 'sass') { %>
     "grunt-contrib-compass": "^0.1.3",<% } %>
+    <% if (autoprefixer) { %>"grunt-autoprefixer": "^0.8.2", <% } %>
     "grunt-rev": "^0.1.0",
     "grunt-usemin": "^2.1.1",
     "grunt-mocha": "^0.4.7",
