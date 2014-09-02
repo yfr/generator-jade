@@ -16,7 +16,7 @@
     "grunt-contrib-imagemin": "^0.7.0",
     "grunt-contrib-jade": "^0.11.0",
     "grunt-contrib-watch": "^0.6.1",<% if (cssProcessor === 'stylus') { %>
-    "grunt-contrib-stylus": "^0.16.0",<% } else if (cssProcessor === 'sass') { %>
+    "grunt-contrib-stylus": "^0.19.0",<% } else if (cssProcessor === 'sass') { %>
     "grunt-contrib-compass": "^0.1.3",<% } %>
     <% if (autoprefixer) { %>"grunt-autoprefixer": "^0.8.2", <% } %>
     "grunt-rev": "^0.1.0",
