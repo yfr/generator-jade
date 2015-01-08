@@ -20,7 +20,7 @@
     "url": "git://github.com/yfr/generator-jade.git"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "jshint . && mocha"
   },
   "dependencies": {
     "yeoman-generator": "^0.16.0"
