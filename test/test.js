@@ -36,7 +36,16 @@ describe('Webapp generator test', function() {
       'app/jade/layouts/_default.jade',
       'app/jade/index.jade',
       'app/styles/main.styl',
-      'app/scripts/main.js'
+      'app/scripts/main.js',
+      'tasks/aliases.yaml',
+      'tasks/bump.js',
+      'tasks/changelog.js',
+      'tasks/clean.js',
+      'tasks/connect.js',
+      'tasks/copy.js',
+      'tasks/jade.js',
+      'tasks/stylus.js',
+      'tasks/watch.js'
     ];
 
     helpers.mockPrompt(this.webapp, {
@@ -62,7 +71,16 @@ describe('Webapp generator test', function() {
       'app/jade/layouts/_default.jade',
       'app/jade/index.jade',
       'app/styles/main.sass',
-      'app/scripts/main.js'
+      'app/scripts/main.js',
+      'tasks/aliases.yaml',
+      'tasks/bump.js',
+      'tasks/changelog.js',
+      'tasks/clean.js',
+      'tasks/connect.js',
+      'tasks/copy.js',
+      'tasks/jade.js',
+      'tasks/stylus.js',
+      'tasks/watch.js'
     ];
 
     helpers.mockPrompt(this.webapp, {
@@ -88,7 +106,16 @@ describe('Webapp generator test', function() {
       'app/jade/layouts/_default.jade',
       'app/jade/index.jade',
       'app/styles/main.css',
-      'app/scripts/main.js'
+      'app/scripts/main.js',
+      'tasks/aliases.yaml',
+      'tasks/bump.js',
+      'tasks/changelog.js',
+      'tasks/clean.js',
+      'tasks/connect.js',
+      'tasks/copy.js',
+      'tasks/jade.js',
+      'tasks/stylus.js',
+      'tasks/watch.js'
     ];
 
     helpers.mockPrompt(this.webapp, {
@@ -152,8 +179,7 @@ describe('Webapp generator test', function() {
   });
 
   it('creates autoprefixer in stylus mode', function(done) {
-    var expected = /autoprefixer/g,
-      file = 'Gruntfile.js';
+    var expected = 'tasks/autoprefixer.js';
 
     helpers.mockPrompt(this.webapp, {
       cssProcessor: 'stylus',
@@ -163,14 +189,13 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertFileContent(file,expected);
+      helpers.assertFile(expected);
       done();
     });
   });
 
   it('creates autoprefixer in sass mode', function(done) {
-    var expected = /autoprefixer/g,
-      file = 'Gruntfile.js';
+    var expected = 'tasks/autoprefixer.js';
 
     helpers.mockPrompt(this.webapp, {
       cssProcessor: 'sass',
@@ -180,14 +205,13 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertFileContent(file,expected);
+      helpers.assertFile(expected);
       done();
     });
   });
 
   it('creates autoprefixer in css mode', function(done) {
-    var expected = /autoprefixer/g,
-      file = 'Gruntfile.js';
+    var expected = 'tasks/autoprefixer.js';
 
     helpers.mockPrompt(this.webapp, {
       cssProcessor: 'css',
@@ -197,14 +221,13 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertFileContent(file,expected);
+      helpers.assertFile(expected);
       done();
     });
   });
 
   it('don\'t creates autoprefixer in stylus mode', function(done) {
-    var expected = /autoprefixer/g,
-      file = 'Gruntfile.js';
+    var expected = 'tasks/autoprefixer.js';
 
     helpers.mockPrompt(this.webapp, {
       cssProcessor: 'stylus',
@@ -214,14 +237,13 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertNoFileContent(file,expected);
+      helpers.assertNoFile(expected);
       done();
     });
   });
 
   it('don\'t creates autoprefixer in sass mode', function(done) {
-    var expected = /autoprefixer/g,
-      file = 'Gruntfile.js';
+    var expected = 'tasks/autoprefixer.js';
 
     helpers.mockPrompt(this.webapp, {
       cssProcessor: 'sass',
@@ -231,14 +253,13 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertNoFileContent(file,expected);
+      helpers.assertNoFile(expected);
       done();
     });
   });
 
   it('don\'t creates autoprefixer in css mode', function(done) {
-    var expected = /autoprefixer/g,
-      file = 'Gruntfile.js';
+    var expected = 'tasks/autoprefixer.js';
 
     helpers.mockPrompt(this.webapp, {
       cssProcessor: 'css',
@@ -248,15 +269,14 @@ describe('Webapp generator test', function() {
     this.webapp.options['skip-install'] = true;
 
     this.webapp.run({}, function() {
-      helpers.assertNoFileContent(file,expected);
+      helpers.assertNoFile(expected);
       done();
     });
   });
 
   it(
     'autoprefixer is not added to package.json if not selected',
-    function(done
-  ) {
+    function(done) {
     var expected = /autoprefixer/g,
       file = 'package.json';
 
