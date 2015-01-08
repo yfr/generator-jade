@@ -2,8 +2,6 @@
 
 var path    = require('path');
 var helpers = require('yeoman-generator').test;
-var assert  = require('assert');
-
 
 describe('Webapp generator test', function() {
   beforeEach(function(done) {
@@ -255,7 +253,10 @@ describe('Webapp generator test', function() {
     });
   });
 
-  it('autoprefixer is not added to package.json if not selected', function(done) {
+  it(
+    'autoprefixer is not added to package.json if not selected',
+    function(done
+  ) {
     var expected = /autoprefixer/g,
       file = 'package.json';
 
