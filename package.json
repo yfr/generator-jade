@@ -30,6 +30,7 @@
     "generator-mocha": ">=0.1.0"
   },
   "devDependencies": {
+    "jshint": "^2.5.11",
     "mocha": "*"
   },
   "engines": {
