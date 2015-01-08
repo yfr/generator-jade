@@ -1,0 +1,37 @@
+default:
+  - serve
+
+serve:
+  - clean:server
+  - jade
+  - stylus
+  - autoprefixer
+  - connect:server
+  - watch
+
+build:
+  - clean:build
+  - jade
+  - stylus
+  - autoprefixer
+  - copy:dist
+
+release:
+  - bump-only
+  - changelog
+  - bump-commit
+
+release:patch:
+  - bump-only:patch
+  - changelog
+  - bump-commit
+
+release:minor:
+  - bump-only:minor
+  - changelog
+  - bump-commit
+
+release:major:
+  - bump-only:major
+  - changelog
+  - bump-commit
