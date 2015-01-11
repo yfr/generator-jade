@@ -132,6 +132,7 @@ JadeGenerator.prototype.projectFiles = function projectFiles() {
   }
 
   this.copy('_main.js', 'app/scripts/main.js');
+  this.copy('CONVENTIONS.md', 'CONVENTIONS.md');
 };
 
 JadeGenerator.prototype.install = function() {
