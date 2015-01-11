@@ -34,8 +34,14 @@ describe('Webapp generator test', function() {
         'tasks/clean.js',
         'tasks/connect.js',
         'tasks/copy.js',
+        'tasks/htmlmin.js',
+        'tasks/imagemin.js',
         'tasks/jade.js',
+        'tasks/rev.js',
         'tasks/stylus.js',
+        'tasks/svgmin.js',
+        'tasks/usemin.js',
+        'tasks/useminPrepare.js',
         'tasks/watch.js'
       ];
       done();
