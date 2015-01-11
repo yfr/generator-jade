@@ -90,6 +90,12 @@ JadeGenerator.prototype.gruntfile = function gruntfile() {
   this.copy('tasks/jade.js', 'tasks/jade.js');
   this.copy('tasks/stylus.js', 'tasks/stylus.js');
   this.copy('tasks/watch.js', 'tasks/watch.js');
+  this.copy('tasks/htmlmin.js', 'tasks/htmlmin.js');
+  this.copy('tasks/imagemin.js', 'tasks/imagemin.js');
+  this.copy('tasks/rev.js', 'tasks/rev.js');
+  this.copy('tasks/svgmin.js', 'tasks/svgmin.js');
+  this.copy('tasks/usemin.js', 'tasks/usemin.js');
+  this.copy('tasks/useminPrepare.js', 'tasks/useminPrepare.js');
 
   if (this.autoprefixer) {
     this.copy('tasks/autoprefixer.js', 'tasks/autoprefixer.js');
