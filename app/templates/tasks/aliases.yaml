@@ -4,17 +4,33 @@ default:
 serve:
   - clean:server
   - jade
-  - stylus
-  - autoprefixer
+  - stylus <% if (autoprefixer) { %>
+  - autoprefixer<% } %>
   - connect:server
   - watch
 
 build:
   - clean:build
   - jade
-  - stylus
-  - autoprefixer
+  - stylus <% if (autoprefixer) { %>
+  - autoprefixer<% } %>
   - copy:dist
+  - useminPrepare
+  - concat
+  - cssmin
+  - uglify
+  - imagemin
+  - svgmin
+  - htmlmin
+  - rev
+  - usemin
+
+test:
+  - clean:server
+  - jade
+  - stylus
+  - connect:test
+  - mocha
 
 release:
   - bump-only
