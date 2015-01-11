@@ -9,20 +9,14 @@ module.exports = {
         '*.{ico,txt}',
         '.htaccess',
         'images/{,*/}*.{jpg,jpeg,png,webp,gif,svg}',
-        'audio/{,*/}*',
-        'styles/fonts/*',
-        'scripts/**/*js',
-        'bower_components/**/*js',
-        '!bower_components/closure-library/**/*js',
-        'data/**/*'
+        'styles/fonts/*'
       ]
     }, {
       expand: true,
-      cwd: '<%= folders.tmp %>',
-      dest: '<%= folders.dist %>',
+      cwd: '<%= folders.app %>',
+      dest: '<%= folders.tmp %>',
       src: [
-        'styles/*.css',
-        '**/*.html'
+        'scripts/{,*/}*js', 'bower_components/**/*js'
       ]
     }]
   }
