@@ -25,6 +25,7 @@ describe('Webapp generator test', function() {
         '.editorconfig',
         '.gitignore',
         '.jshintrc',
+        'CONVENTIONS.md',
         'app/jade/layouts/_default.jade',
         'app/jade/index.jade',
         'app/scripts/main.js',
