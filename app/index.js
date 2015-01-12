@@ -80,6 +80,27 @@ JadeGenerator.prototype.askFor = function askFor() {
 
 JadeGenerator.prototype.gruntfile = function gruntfile() {
   this.template('_Gruntfile.js', 'Gruntfile.js');
+
+  this.copy('tasks/aliases.yaml', 'tasks/aliases.yaml');
+  this.copy('tasks/bump.js', 'tasks/bump.js');
+  this.copy('tasks/changelog.js', 'tasks/changelog.js');
+  this.copy('tasks/clean.js', 'tasks/clean.js');
+  this.copy('tasks/connect.js', 'tasks/connect.js');
+  this.copy('tasks/copy.js', 'tasks/copy.js');
+  this.copy('tasks/jade.js', 'tasks/jade.js');
+  this.copy('tasks/stylus.js', 'tasks/stylus.js');
+  this.copy('tasks/watch.js', 'tasks/watch.js');
+  this.copy('tasks/htmlmin.js', 'tasks/htmlmin.js');
+  this.copy('tasks/imagemin.js', 'tasks/imagemin.js');
+  this.copy('tasks/rev.js', 'tasks/rev.js');
+  this.copy('tasks/svgmin.js', 'tasks/svgmin.js');
+  this.copy('tasks/usemin.js', 'tasks/usemin.js');
+  this.copy('tasks/useminPrepare.js', 'tasks/useminPrepare.js');
+
+  if (this.autoprefixer) {
+    this.copy('tasks/autoprefixer.js', 'tasks/autoprefixer.js');
+  }
+
 };
 
 JadeGenerator.prototype.tools = function tools() {
@@ -98,8 +119,7 @@ JadeGenerator.prototype.git = function git() {
 };
 
 JadeGenerator.prototype.jade = function jade() {
-  this.copy('jade/_default.jade', 'app/jade/layouts/_default.jade');
-  this.copy('jade/_index.jade', 'app/jade/index.jade');
+  this.directory('jade', 'app/jade');
 };
 
 JadeGenerator.prototype.projectFiles = function projectFiles() {
@@ -112,6 +132,7 @@ JadeGenerator.prototype.projectFiles = function projectFiles() {
   }
 
   this.copy('_main.js', 'app/scripts/main.js');
+  this.copy('CONVENTIONS.md', 'CONVENTIONS.md');
 };
 
 JadeGenerator.prototype.install = function() {
