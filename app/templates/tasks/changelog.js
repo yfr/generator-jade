@@ -1,5 +1,6 @@
 module.exports = {
   options: {
-    editor: 'subl -w'
+    // Uncomment for sublime on the fly changelog editing
+    // editor: 'subl -w'
   }
 };
