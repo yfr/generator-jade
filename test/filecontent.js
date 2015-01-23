@@ -33,7 +33,7 @@ describe('Jade generator test', function() {
 
       this.webapp.options['skip-install'] = true;
 
-      this.webapp.run( function() {
+      this.webapp.run(function() {
         helpers.assertFileContent(file, expected);
         done();
       });
@@ -50,7 +50,7 @@ describe('Jade generator test', function() {
 
       this.webapp.options['skip-install'] = true;
 
-      this.webapp.run( function() {
+      this.webapp.run(function() {
         helpers.assertNoFileContent(file, expected);
         done();
       });
@@ -66,7 +66,7 @@ describe('Jade generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run( function() {
+    this.webapp.run(function() {
       helpers.assertFileContent(file, expected);
       done();
     });
@@ -82,7 +82,7 @@ describe('Jade generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run( function() {
+    this.webapp.run(function() {
       helpers.assertNoFileContent(file, expected);
       done();
     });
@@ -98,7 +98,7 @@ describe('Jade generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run( function() {
+    this.webapp.run(function() {
       helpers.assertFileContent(file, expected);
       done();
     });
