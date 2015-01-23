@@ -1,3 +1,8 @@
+/**
+ * grunt-rev options
+ * @type {Object}
+ */
+
 module.exports = {
   dist: {
     files: {

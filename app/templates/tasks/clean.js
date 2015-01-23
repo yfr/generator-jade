@@ -1,3 +1,8 @@
+/**
+ * grunt-contrib-clean options
+ * @type {Object}
+ */
+
 module.exports = {
   build: {
     files: [{

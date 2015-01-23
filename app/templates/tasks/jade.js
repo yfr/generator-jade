@@ -1,3 +1,8 @@
+/**
+ * grunt-contirb-jade options
+ * @type {Object}
+ */
+
 module.exports = {
   html: {
     files: [{

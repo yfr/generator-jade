@@ -1,3 +1,8 @@
+/**
+ * grunt-contrib-imagemin options
+ * @type {Object}
+ */
+
 module.exports = {
   dist: {
     files: [{
