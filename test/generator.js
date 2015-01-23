@@ -3,7 +3,7 @@
 var path = require('path'),
   helpers = require('yeoman-generator').test;
 
-describe('Webapp generator test', function() {
+describe('Jade generator test', function() {
   beforeEach(function(done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function(err) {
       if (err) {

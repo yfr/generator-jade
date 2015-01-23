@@ -1,3 +1,8 @@
+/**
+ * grunt-contrib-connect options
+ * @type {Object}
+ */
+
 module.exports = {
   options: {
     port: 9000,

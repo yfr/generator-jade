@@ -1,3 +1,8 @@
+/**
+ * grunt-contrib-watch options
+ * @type {Object}
+ */
+
 module.exports = {
   server: {
     options: {

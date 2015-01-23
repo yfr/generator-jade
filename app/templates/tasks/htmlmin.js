@@ -1,3 +1,8 @@
+/**
+ * grunt-contrib-htmlmin options
+ * @type {Object}
+ */
+
 module.exports = {
   dist: {
     files: [{

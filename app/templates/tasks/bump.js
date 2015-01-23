@@ -1,3 +1,8 @@
+/**
+ * grunt-bump options
+ * @type {Object}
+ */
+
 module.exports = {
   options: {
     files: ['package.json'],

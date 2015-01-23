@@ -1,3 +1,8 @@
+/**
+ * grunt-contrib-stylus options
+ * @type {Object}
+ */
+
 module.exports = {
   compile: {
     files: [{

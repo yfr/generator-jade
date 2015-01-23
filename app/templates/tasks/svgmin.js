@@ -1,3 +1,8 @@
+/**
+ * grunt-svgmin options
+ * @type {Object}
+ */
+
 module.exports = {
   dist: {
     files: [{
