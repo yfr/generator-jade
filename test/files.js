@@ -4,7 +4,7 @@ var path = require('path'),
   helpers = require('yeoman-generator').test,
   baseFileList = [];
 
-describe('Webapp generator test', function() {
+describe('Jade generator test', function() {
   beforeEach(function(done) {
     helpers.testDirectory(path.join(__dirname, 'temp'), function(err) {
       if (err) {
@@ -59,7 +59,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertFile(expected);
       done();
     });
@@ -75,7 +75,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertFile(expected);
       done();
     });
@@ -91,7 +91,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertFile(expected);
       done();
     });
@@ -106,7 +106,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertFile(expected);
       done();
     });
@@ -122,7 +122,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertFile(expected);
       done();
     });
@@ -138,7 +138,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertFile(expected);
       done();
     });
@@ -154,7 +154,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertNoFile(expected);
       done();
     });
@@ -170,7 +170,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run( function() {
       helpers.assertNoFile(expected);
       done();
     });
@@ -186,7 +186,7 @@ describe('Webapp generator test', function() {
 
     this.webapp.options['skip-install'] = true;
 
-    this.webapp.run({}, function() {
+    this.webapp.run(function() {
       helpers.assertNoFile(expected);
       done();
     });
