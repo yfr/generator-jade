@@ -1,6 +1,6 @@
 {
   "name": "generator-jade",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "description": "A yo generator for jade projects",
   "keywords": [
     "yeoman-generator",
