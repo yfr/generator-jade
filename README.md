@@ -1,3 +1,5 @@
+# THIS PROJECT IS NOT ACTIVELY MAINTAINED ANYMORE. IF YOU WISH TO WORK ON IT I WOULD LOVE TO GRAND YOU THE RESPECTIVE RIGHTS. JUST CONTACT ME!
+
 # Generator-jade
 [![NPM version](https://badge.fury.io/js/generator-jade.png)](http://badge.fury.io/js/generator-jade)
 
